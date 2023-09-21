@@ -1,0 +1,55 @@
+<!-- 
+    FORMULARIOS
+    DISEÑO DE FORMULARIO EN HTML
+    investigar en w3school
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 6</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        form{
+            box-shadow: 10px 20px 20px;
+            width: 300px;
+            margin: 0 auto;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        label{
+            display: block;
+        }
+        input[type="submit"]{
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            border-color: blue;
+        }
+        input{
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inicio de sesión</h1>
+  <form action="" method="post">
+    <label for="">Nombre del usuario:</label>
+    <input type="text" id = "user" name="user">
+    <label for="">Contraseña:</label>
+    <input type="password" id="password" name="password"> 
+    <input type="submit" value="Iniciar sesion">
+ </form>
+</body>
+</html>
