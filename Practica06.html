@@ -44,12 +44,21 @@
 </head>
 <body>
     <h1>Inicio de sesión</h1>
-  <form action="" method="post">
+  <form action="" method="post" id="FORMULARIO">
     <label for="">Nombre del usuario:</label>
     <input type="text" id = "user" name="user">
     <label for="">Contraseña:</label>
     <input type="password" id="password" name="password"> 
     <input type="submit" value="Iniciar sesion">
  </form>
+ <script>
+    const FORMULARIO = document.getElementById("button")
+    FORMULARIO.addEventListener("click", evento =>{
+        evento.preventDefault()
+    });
+    let u = document.getElementById("user")
+    let p = document.getElementById("password")
+    alert()
+ </script>
 </body>
 </html>
