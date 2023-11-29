@@ -1,58 +1,64 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Button, TextField, Box } from "@mui/material"
+import { useState } from "react"
+import axios from "axios"
 
-function Formulario (props){
-    const [Cargando, setCargando] = useState(false) //['', funcion]
-    const
-        [DatosFormulario, setDatosFormulario] = useState({nombre: '', contraseña: ''}) //['', funcion
-    const procesarFormularios = (evento) =>{
-        evento.preventDefault();
-        console.log(evento)
-        setCargando(true)
-        try{
-            const response = hacerPeticion()
-            //console.log(res)
-            setCargando(false)
-            if(DatosFormulario.nombre === response.username){
-                console.log("Ok, el usuario existe ")
-            }else{
-                console.log("No existe el usuario")
-            }
-        }catch(error){
-            console.log(error)
-            setCargando (false)
-        }
-    }
-    const hacerPeticion = async () =>{
-        try{
-            const res = await axios.get("localhost:4567")
-            return res.data
-        }catch(error){
+function Formulario (props) {
+    const [Cargando, setCargando] = useState(false)
+    const [datosFormulario, setDatosFormulario] = useState(
+        {nombre: '',
+        password: ''}
+    )
+
+    const hacerPeticion = async () => {
+        try {
+            const response = await axios.get('http://localhost:4567/ruta3')
+            console.log(response.data)
+            return response.data
+        } catch (error) {
             throw error
         }
     }
-    const cambiosformulario = (e) =>{
-        const {name, value} = e.target
-        setDatosFormulario({...DatosFormulario, [name]: value})
+
+    const procesarFormulario = (evento) => {
+        evento.preventDefault()
+        console.log("datos recuperados del formulario: ", datosFormulario)
+        setCargando(true)
+        try {
+            const response = hacerPeticion()
+            setCargando(false)
+            //validar resultado con backend
+            if (datosFormulario.nombre===response.alumno) {
+                console.log('el que ustedes quieran')
+            } else {
+                console.log('error, el usuario no existe')
+            }
+        } catch (error) {
+            console.log('error', error)
+            setCargando(false)
+        }
+    }
+    const cambiosFormulario =(evento)=> {
+        const {name,value}=evento.target
+        setDatosFormulario ({
+            ...datosFormulario,[name]:value
+        })
     }
     return (
-        <>  
-            <h1>Inicio de sesión</h1>
-            <form onSubmit={procesarFormularios}>
-                <Box m = {5} >
-                    <TextField> label = "Nombre: " variant = "outlined" fullWidth onChange (cambiosformulario) name = "nombre" value {DatosFormulario.nombre}</TextField>
-                </Box>
-                <Box m = {5}>
-                    <TextField> label = "Contraseña:" variant = "outlined" fullWidth
-                        onChange = {cambiosformulario} name = "contraseña" value = {DatosFormulario.contraseña} type = "password" DatosFormulario.contraseña 
-                    </TextField>
-                </Box>
-                <Box m = {5}>
-                    <Button variant = "contained" type = "submit" color = "primary" fullWidth> Iniciar sesión</Button>
-                </Box>
+            <>
+            <form onSubmit={procesarFormulario}>
+            <h1>Inicio de sesion</h1>
+            <Box m={5}>
+                <TextField label="nombre: " variant="outlined" fullwidth onChange={cambiosFormulario} name="nombre" value={datosFormulario.nombre}></TextField>
+            </Box>
+            <Box m={5}>
+                <TextField label="password:" variant="outlined" fullwidth onChange={cambiosFormulario} name="password" value={datosFormulario.password}></TextField>
+            </Box>
+            <Box m={5}>
+                <Button variant="contained" type="submit" color="primary" fullwidth={Cargando} >Iniciar sesion</Button>
+            </Box>
             </form>
-        </>
-    )    
+            </>
+            )
 }
 
-export default Formulario;
-
+export default Formulario
