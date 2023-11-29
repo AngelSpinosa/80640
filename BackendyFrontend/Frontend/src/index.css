@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+}
+
+h1, p, form {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #F2E8CF;
+}
+
+.Psistemas {
+  font-size: 35px;
+  margin-bottom: 15px; /* Ajusta la distancia entre h1 y p */
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 45px;
+  margin-bottom: -18px; /* Ajusta la distancia entre h1 y el siguiente elemento */
+}
+
+form {
+  word-spacing: 7px;
+  padding: 5px;
+  padding-bottom: 10px;
+  text-align: center;
+  border: 2px solid #F2E8CF;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+}
+
+input, button {
+  width: 200px;
+  margin-bottom: 15px; /* Ajusta la distancia vertical entre inputs */
+  border: 2px solid #F2E8CF;
+  border-radius: 55px;
+  background-color: transparent;
+  color: #F2E8CF !important; /* Agregado !important */
+}
+
+.miInput.muiInput-contained {
+  width: 250px;
+  height: 80px;
+  margin-bottom: -15px; /* Ajusta la distancia vertical entre los dos inputs */
+  border: 2px solid #F2E8CF;
+  border-radius: 18px;
+  background-color: transparent;
+}
+
+div {
+  margin-bottom: 10px;
+  background-color: #386641;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Div_Fondo {
+  height: 100vh;
+}
+
+.Div_inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Div_Buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.miBoton.muiButton-contained {
+  border: 2px solid #F2E8CF;
+  border-radius: 20px;
+  background-color: transparent;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #F2E8CF;
+  margin-right: -10px; /* Ajusta la distancia horizontal entre botones */
+}
